@@ -1,6 +1,6 @@
 (() => {
   'use strict';
-  const EMAIL = 'rasia@gmail.com';
+  const EMAIL = 'contact@roon.kr';
   const DEFAULT_TOPIC = '소프트웨어 개발 문의';
   const TOPICS = new Set([
     DEFAULT_TOPIC,
