@@ -1,0 +1,10 @@
+BEGIN:VCARD
+VERSION:3.0
+N:김;정현;;;
+FN:김정현
+ORG:알오(RO)
+TITLE:대표
+EMAIL;TYPE=INTERNET,WORK:contact@roon.kr
+URL:https://roon.kr/
+NOTE:Software Engineering
+END:VCARD
