@@ -369,3 +369,36 @@ h3{font-size:20px;line-height:1.5;letter-spacing:-.035em}
 }
 
 .one-page .project-gallery .project-stack::-webkit-scrollbar{display:none}
+
+/* Fixed navy presentation; independent of the visitor's OS color preference. */
+.navy-theme{--bg:#0b1421;--paper:#16263b;--ink:#f3f6fa;--muted:#b8c4d2;--navy:#b6d2f3;--line:#314257;background:var(--bg);color:var(--ink)}
+.navy-theme .site-header{background:#0b1421f5;border-bottom-color:var(--line)}
+.navy-theme .brand img,.navy-theme .footerbrand img{filter:brightness(0) invert(1)}
+.navy-theme .projects-section{background:#101e30;border-color:var(--line)}
+.navy-theme .contact-section{background:var(--bg)}
+.navy-theme .contact-watermark{filter:brightness(0) invert(1);opacity:.035}
+.navy-theme .project-index,.navy-theme .project-index button{border-color:var(--line)}
+.navy-theme .project-index button[aria-pressed=true]{border-color:var(--navy);color:var(--navy)}
+.navy-theme .project-index button[aria-pressed=true] span{color:var(--navy)}
+.navy-theme .project-scene,.navy-theme .contact-card{border-color:var(--line)}
+.navy-theme .tag{background:#21344c;color:#c8d9ed;border-color:#46607c}
+.navy-theme .button{background:#dbe9fa;border-color:#dbe9fa;color:#10233b}
+.navy-theme .button:hover{background:#fff;border-color:#fff}
+.navy-theme .button.outline{background:transparent;border-color:#7188a3;color:var(--ink)}
+.navy-theme .button.outline:hover{background:#21344c;border-color:#9cb2cb}
+.navy-theme .carousel-navigation button{border-color:#7188a3;color:var(--ink)}
+.navy-theme .carousel-navigation button:hover:not(:disabled){background:#dbe9fa;color:#10233b;border-color:#dbe9fa}
+.navy-theme .carousel-navigation button:disabled{opacity:.35}
+.navy-theme :is(a,button):focus-visible,.navy-theme #project-track:focus-visible{outline:3px solid #86b8f0;outline-offset:5px}
+.navy-theme .skip{background:#dbe9fa;color:#10233b}
+/* Keep the physical business card and software previews in their original ink. */
+.navy-theme .identity-card,.navy-theme .project-visual{--navy:#142d4e;--ink:#1d3048;--muted:#5d6977;--line:#d6d9dd;--paper:#fff;color:var(--ink)}
+.navy-theme .identity-card{box-shadow:0 24px 60px #0004;border-color:#92a1b5}
+.navy-theme .paper-stack:before{background:#274260;border-color:#526b88}
+.navy-theme .contact-card:before{background:#274260;border-color:#526b88}
+@media print{
+  .navy-theme{--bg:#fff;--paper:#fff;--ink:#1d3048;--muted:#5d6977;--navy:#142d4e;--line:#d6d9dd}
+  .navy-theme .projects-section,.navy-theme .site-header{background:#fff}
+  .navy-theme .brand img,.navy-theme .footerbrand img{filter:none}
+  .navy-theme .tag{background:#fff;color:#1d3048;border-color:#d6d9dd}
+}
