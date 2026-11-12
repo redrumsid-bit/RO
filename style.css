@@ -162,3 +162,30 @@ h3{font-size:20px;line-height:1.5;letter-spacing:-.035em}
 @media(max-width:360px){.wrap,.cta{width:calc(100% - 32px)}.head{gap:12px}.head nav{gap:14px}.brand span{font-size:7px}.hero-copy h1{font-size:34px}.homehero .lead{font-size:14px}.identity-card{padding:23px 20px;min-height:205px}.identity-bottom{gap:12px}.identity-bottom strong{font-size:20px}.identity-bottom span{padding-left:12px;font-size:10px}.identity-logo p{font-size:11px}.identity-logo img{width:86px}.pagehero h1{font-size:33px}.detailhero{padding:22px}.detailhero h1{font-size:28px}.content{padding:23px 20px}.previewcaption{flex-direction:column;align-items:start;gap:1px}.contact-card{padding:25px 20px}.contactgrid .email{font-size:26px}}
 @media(prefers-reduced-motion:no-preference){.button,.service-card,.filepreview img{transition:background-color .16s ease,border-color .16s ease,transform .16s ease}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* One-time entrances and tactile feedback; no hidden pre-animation state. */
+@keyframes ro-enter{from{opacity:0;transform:translate3d(0,20px,0)}to{opacity:1;transform:translate3d(0,0,0)}}
+@keyframes ro-paper-settle{from{transform:translateY(-5px) rotate(-1deg)}to{transform:translateY(-14px) rotate(-4deg)}}
+@media(prefers-reduced-motion:no-preference){
+  .motion-enter{animation:ro-enter .72s cubic-bezier(.2,.7,.2,1) backwards}
+  .motion-delay-1{animation-delay:.08s}.motion-delay-2{animation-delay:.16s}.motion-delay-3{animation-delay:.24s}
+  .hero-object.motion-enter .paper-stack:before{animation:ro-paper-settle 1.1s .25s cubic-bezier(.2,.7,.2,1) backwards}
+  .button,.service-card,.identity-card,.projectcard,.filepreview img{transition:transform .28s cubic-bezier(.2,.7,.2,1),box-shadow .28s ease,border-color .28s ease,background-color .2s ease}
+  .button span,.service-link span,.textlink{transition:transform .25s ease}
+  .head nav a:not([aria-current]):after{content:"";position:absolute;bottom:4px;left:0;right:0;height:2px;background:var(--navy);transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+  .head nav a:focus-visible:after{transform:scaleX(1)}
+  .button:active{transform:scale(.98)}
+}
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .button:hover{transform:translateY(-2px);box-shadow:0 6px 15px #142d4e14}
+  .button:hover span,.service-card:hover .service-link span{transform:translate(2px,-2px)}
+  .identity-card:hover{transform:translateY(-5px) rotate(.6deg);box-shadow:0 24px 40px #142d4e20}
+  .service-card:hover,.projectcard:hover{transform:translateY(-4px);box-shadow:0 16px 32px #142d4e13}
+  .filepreview:hover img{transform:translateY(-3px) scale(1.015)}
+  .head nav a:hover:after{transform:scaleX(1)}
+}
+@media(hover:none){.service-card:hover,.filepreview:hover img{transform:none}}
+@media(prefers-reduced-motion:reduce){
+  .motion-enter,.hero-object .paper-stack:before{animation:none}
+  .service-card:hover,.filepreview:hover img{transform:none}
+}
