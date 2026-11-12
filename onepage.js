@@ -28,13 +28,6 @@
       {transform:'translateY(0) rotate(0deg)'},
       {transform:`translateY(${mobile ? -24 : -85}px) rotate(${mobile ? 0 : -2}deg)`},
     ], true);
-    document.querySelectorAll('.project-visual img').forEach(image => {
-      const distance = mobile ? 10 : 22;
-      add(image, image.closest('.project-scene'), [
-        {transform:`translateY(${distance}px) scale(1.025)`},
-        {transform:`translateY(${-distance}px) scale(1.025)`},
-      ]);
-    });
     add(document.querySelector('.contact-watermark'), document.getElementById('contact'), [
       {transform:'translateY(50px)'}, {transform:'translateY(-50px)'},
     ]);
