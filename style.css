@@ -396,9 +396,16 @@ h3{font-size:20px;line-height:1.5;letter-spacing:-.035em}
 .navy-theme .identity-card{box-shadow:0 24px 60px #0004;border-color:#92a1b5}
 .navy-theme .paper-stack:before{background:#274260;border-color:#526b88}
 .navy-theme .contact-card:before{background:#274260;border-color:#526b88}
+/* Detail pages share the same navy surfaces and readable workflow panels. */
+.navy-theme .detailhero,.navy-theme .content{background:var(--paper);border-color:var(--line)}
+.navy-theme .processline,.navy-theme .industrynames span{background:#101e30}
+.navy-theme .cta{background:#21344c;border:1px solid #46607c}
+.navy-theme .cta p,.navy-theme .cta .eyebrow{color:#c8d9ed}
 @media print{
   .navy-theme{--bg:#fff;--paper:#fff;--ink:#1d3048;--muted:#5d6977;--navy:#142d4e;--line:#d6d9dd}
   .navy-theme .projects-section,.navy-theme .site-header{background:#fff}
   .navy-theme .brand img,.navy-theme .footerbrand img{filter:none}
   .navy-theme .tag{background:#fff;color:#1d3048;border-color:#d6d9dd}
+  .navy-theme .processline,.navy-theme .industrynames span,.navy-theme .cta{background:#fff}
+  .navy-theme .cta h2,.navy-theme .cta p,.navy-theme .cta .eyebrow{color:var(--ink)}
 }
