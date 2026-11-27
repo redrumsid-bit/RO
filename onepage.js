@@ -15,7 +15,7 @@
   function buildEffects() {
     effects.forEach(({animation}) => animation.cancel());
     effects = [];
-    if (preference.matches) return;
+    if (preference.matches || document.body?.classList.contains('soft-motion')) return;
     const mobile = innerWidth <= 900;
     function add(element, container, frames, home = false) {
       if (!element || !container || typeof element.animate !== 'function') return;

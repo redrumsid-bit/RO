@@ -1,8 +1,9 @@
 /* RO / Paper & Navy — shared marketing-page design system */
+@font-face{font-family:SUITE;src:url('assets/SUITE-Variable.woff2') format('woff2');font-weight:300 900;font-display:swap}
 :root{color-scheme:only light;--navy:#142d4e;--ink:#1d3048;--muted:#5d6977;--line:#d6d9dd;--paper:#fff;--pale:#eeedea;--bg:#f5f4f1;--radius:16px;--shadow:0 16px 36px #142d4e0a}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--ink);font-family:"Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;line-height:1.75;word-break:keep-all;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:SUITE,"Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;line-height:1.75;word-break:keep-all;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
 button,input,select{font:inherit}
 button{cursor:pointer}
@@ -409,3 +410,43 @@ h3{font-size:20px;line-height:1.5;letter-spacing:-.035em}
   .navy-theme .processline,.navy-theme .industrynames span,.navy-theme .cta{background:#fff}
   .navy-theme .cta h2,.navy-theme .cta p,.navy-theme .cta .eyebrow{color:var(--ink)}
 }
+/* Approved B: rounded typography and gentle, controllable motion. */
+.soft-motion,html:has(.soft-motion){overflow-x:clip}
+.one-page .homehero{min-height:660px;gap:65px;padding-block:90px 70px}
+.one-page .hero-copy h1{font-size:clamp(46px,4.9vw,72px);font-weight:500;line-height:1.38;letter-spacing:-.055em}
+.hero-line{display:block}.hero-line:last-child{color:#b6d2f3;font-weight:670}
+.one-page .homehero .lead{font-size:18px;line-height:1.9;margin-top:28px;font-weight:350;max-width:450px}
+.eyebrow{font-weight:500;letter-spacing:.17em}
+.head nav{font-size:14px}.head nav a{font-weight:450}
+.button{border-radius:24px;font-weight:550;letter-spacing:-.02em}
+.one-page .identity-card{border-radius:22px;transform:none;box-shadow:0 34px 85px #0005}
+.hero-object{position:relative;isolation:isolate}
+.hero-object:before{content:'';position:absolute;z-index:-2;inset:-35% -20%;background:radial-gradient(ellipse,#587da547,transparent 65%);pointer-events:none}
+.identity-logo p{letter-spacing:.02em;font-weight:400}.object-caption{font-size:12px;font-weight:400}
+.home-capabilities{font-size:13px}.projects-intro h2{font-weight:450!important;line-height:1.5}
+.one-page .project-scene h3{font-weight:500;font-size:30px;line-height:1.5}
+.project-index button{font-family:inherit}.project-index button span{font-size:14px}
+.contact-heading h2{font-weight:450}
+.motion-toggle{display:block;margin:10px auto 0;background:transparent;color:var(--muted);border:1px solid #46607c;border-radius:18px;padding:5px 12px;font:inherit;font-size:11px;min-height:32px}
+.motion-toggle[hidden]{display:none}.motion-toggle:disabled{cursor:default;opacity:.7}
+@keyframes card-breathe{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-12px) rotate(.6deg)}}
+@keyframes glow-breathe{0%,100%{opacity:.55;transform:translateX(-10px)}50%{opacity:1;transform:translateX(18px)}}
+@media(prefers-reduced-motion:no-preference){
+ .motion-ready:not(.motion-off) .paper-stack{animation:card-breathe 7s ease-in-out infinite}
+ .motion-ready:not(.motion-off) .hero-object:before{animation:glow-breathe 7s ease-in-out infinite}
+ .head nav a,.button,.project-index button{transition:background .25s ease,transform .3s ease,color .25s ease}
+ .button:hover{transform:translateY(-3px)}
+}
+.motion-off *, .motion-off *:before,.motion-off *:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+html:has(.motion-off){scroll-behavior:auto!important}
+@media(max-width:900px){.one-page .homehero{gap:45px}}
+@media(max-width:650px){
+ .one-page .homehero{padding-top:45px;min-height:auto}
+ .one-page .hero-copy h1{font-size:clamp(35px,8.7vw,50px)}
+ .one-page .homehero .lead{font-size:16px}
+ .home-capabilities{gap:12px;font-size:11px}
+ .one-page .project-scene h3{font-size:25px}
+ .hero-object:before{inset:-10%}.object-caption{font-size:11px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}.soft-motion *, .soft-motion *:before,.soft-motion *:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media print{.hero-line:last-child{color:inherit}.hero-object:before,.motion-toggle{display:none}.paper-stack{animation:none!important}}

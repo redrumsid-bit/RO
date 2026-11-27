@@ -34,7 +34,8 @@
   }
   function go(index, instant = false) {
     destination = Math.max(0, Math.min(slides.length - 1, index));
-    track.scrollTo({left: offset(destination), behavior: instant || reduced.matches ? 'instant' : 'smooth'});
+    const motionOff = document.body.classList.contains('motion-off');
+    track.scrollTo({left: offset(destination), behavior: instant || reduced.matches || motionOff ? 'instant' : 'smooth'});
   }
   previous.addEventListener('click', () => go((destination ?? active) - 1));
   next.addEventListener('click', () => go((destination ?? active) + 1));
